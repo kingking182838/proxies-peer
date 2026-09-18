@@ -3,6 +3,7 @@ WORKDIR /app
 RUN apk add --no-cache wget && \
     wget -qO reference-sdk.js https://agents.proxies.sx/peer/reference-sdk.js && \
     npm install ws
+RUN mkdir -p /app/state
 ENV API_KEY=""
 ENV PEER_STATE_FILE=/app/state/id.json
 CMD ["node", "reference-sdk.js"]
